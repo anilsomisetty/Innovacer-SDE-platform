@@ -112,7 +112,7 @@ def main():
 			send=search2(t)
 			sendmail+="\nStatus : "+send
 		# print sendmail
-		fromaddr = 'smilyface118@gmail.com'  # Sender(Your) email adddress
+		fromaddr = 'innovacer@gmail.com'  # Sender(Your) email adddress
 		toaddrs  = email  # Receiver email address
 		msg = MIMEMultipart()
 		msg['From'] = fromaddr
@@ -123,8 +123,8 @@ def main():
 
 		msg.attach(MIMEText(body, 'plain'))
 
-		username = 'smilyface118@gmail.com'  # Sender(Your) email address
-		password = 'loveunanna118'  # Password of your email account
+		username = 'innovacer@gmail.com'  # Sender(Your) email address
+		password = 'innovacer'  # Password of your email account
 		server = smtplib.SMTP('smtp.gmail.com:587')  # Give your SMTP server. Here, i'm using gmail.
 		server.ehlo()
 		server.starttls()
@@ -137,15 +137,15 @@ def main():
 		server.close()
 		print 'Successfully sent the mail to '+email
 	db.close()
-# def createtable():
-# 	db=MySQLdb.connect('localhost','root','password','script')
-# 	cursor=db.cursor()
-# 	create="""create table details(
-# 			id integer AUTO_INCREMENT PRIMARY KEY,
-# 			email nvarchar(100),
-# 			tvseries nvarchar(200))"""
-# 	cursor.execute(create)
-# 	db.close()
+def createtable():
+	db=MySQLdb.connect('localhost','root','password','script')
+	cursor=db.cursor()
+	create="""create table details(
+			id integer AUTO_INCREMENT PRIMARY KEY,
+			email nvarchar(100),
+			tvseries nvarchar(200))"""
+	cursor.execute(create)
+	db.close()
 
-# createtable()
+createtable()
 main()
