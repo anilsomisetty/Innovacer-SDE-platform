@@ -24,7 +24,7 @@ def search2(g):
 		ac=ab.find('"')
 		ad=ab[:ac]
 		nex="https://www.imdb.com"+ad
-		print nex
+		# print nex
 		page1=urllib2.urlopen(nex)
 		s1=page1.read()
 		match=re.findall(r'\d+\s\w\w\w.\s\d\d\d\d',s1)
@@ -35,7 +35,7 @@ def search2(g):
 			g=i.split(r'"')
 			if g[3] not in name:
 				name.append(g[3])
-		print name
+		# print name
 		st=""
 		if len(match)==0:
 			hhh=source.find('year=')
@@ -94,25 +94,25 @@ def main():
 		insert="insert into details(email,tvseries) values('%s','%s')"%(a,b)
 		cursor.execute(insert)
 		db.commit()
-	query="select email,tvseries from details where id>='%d'"%(gg)
+	query="select email,tvseries from details where id>'%d'"%(gg)
 	cursor.execute(query)
 	result=cursor.fetchall()
-	print result
+	# print result
 	for series in result:
 		email=series[0]
 		tvseries=series[1]
 		# print tvseries
 		tvseries=tvseries.split(',')
 		sendmail=""
-		print tvseries
+		# print tvseries
 		for t in tvseries:
-			print t
+			# print t
 			sendmail+="\n\nTV series name : '%s'"%(t)
 			send=""
 			send=search2(t)
 			sendmail+="\nStatus : "+send
-		print sendmail
-		fromaddr = 'innovacer@gmail.com'  # Sender(Your) email adddress
+		# print sendmail
+		fromaddr = 'smilyface118@gmail.com'  # Sender(Your) email adddress
 		toaddrs  = email  # Receiver email address
 		msg = MIMEMultipart()
 		msg['From'] = fromaddr
@@ -123,8 +123,8 @@ def main():
 
 		msg.attach(MIMEText(body, 'plain'))
 
-		username = 'innovacer@gmail.com'  # Sender(Your) email address
-		password = 'innovacer'  # Password of your email account
+		username = 'smilyface118@gmail.com'  # Sender(Your) email address
+		password = 'loveunanna118'  # Password of your email account
 		server = smtplib.SMTP('smtp.gmail.com:587')  # Give your SMTP server. Here, i'm using gmail.
 		server.ehlo()
 		server.starttls()
@@ -135,7 +135,7 @@ def main():
 		server.sendmail(fromaddr, toaddrs, text)
 
 		server.close()
-		print 'Successfully sent the mail !!!'
+		print 'Successfully sent the mail to '+email
 	db.close()
 # def createtable():
 # 	db=MySQLdb.connect('localhost','root','password','script')
