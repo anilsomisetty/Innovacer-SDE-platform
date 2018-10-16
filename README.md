@@ -3,6 +3,12 @@ Innovacer internship SDE-Intern (Platform) assignment
 
 The Language Used-Python2
 
+Additional Features:
+
+I am printing the name of the episode alogn with airdate.
+
+Steps:
+
 1)Initially u should create a database in mysql with name "script"
 
 2)In connect command in the script fill in the password of your database like this 
