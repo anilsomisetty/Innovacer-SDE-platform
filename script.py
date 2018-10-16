@@ -29,6 +29,13 @@ def search2(g):
 		s1=page1.read()
 		match=re.findall(r'\d+\s\w\w\w.\s\d\d\d\d',s1)
 		# print match
+		name=[]
+		epi=re.findall(r'<a\shref="\/\w+\/\w+\/\?\w+\_\=\w+\_\w+"\ntitle\=".*"\s',s1)
+		for i in epi:
+			g=i.split(r'"')
+			if g[3] not in name:
+				name.append(g[3])
+		print name
 		st=""
 		if len(match)==0:
 			hhh=source.find('year=')
@@ -41,6 +48,7 @@ def search2(g):
 			month=now.month
 			year=now.year
 			st=""
+			i=0
 			for mat in match:
 				tem=mat.split(" ")
 				dd=int(tem[0])
@@ -55,17 +63,18 @@ def search2(g):
 				if year==yy:
 					if mm==month:
 						if dd==date:
-							st+="next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+							st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 							return st
 						elif dd>date:
-							st+="next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+							st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 							return st
 					elif mm>month:
-						st+="next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+						st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 						return st
 				elif yy>year:
-					st+="next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+					st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 					return st
+				i=i+1
 			return "No data found for further release date so far we believe that the show has finished streaming all its episodes"
 
 
