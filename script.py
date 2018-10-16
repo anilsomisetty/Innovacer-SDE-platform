@@ -63,16 +63,16 @@ def search2(g):
 				if year==yy:
 					if mm==month:
 						if dd==date:
-							st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+							st+="Next episode "+name[i]+" airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 							return st
 						elif dd>date:
-							st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+							st+="Next episode "+name[i]+" airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 							return st
 					elif mm>month:
-						st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+						st+="Next episode "+name[i]+" airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 						return st
 				elif yy>year:
-					st+="Episode name is : "+name[i]+"\n"+"next episode airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
+					st+="Next episode "+name[i]+" airs on "+str(yy)+"-"+str(mm)+"-"+str(dd)
 					return st
 				i=i+1
 			return "No data found for further release date so far we believe that the show has finished streaming all its episodes"
