@@ -18,19 +18,19 @@ fromaddr="your emailaddress"
 username="innovacer@gmail.com"
 password="innovacer"
 
-5)Run the script with the command
+5)Make sure you give permissions to less secure apps for your sending mail to send mails
+
+6)Run the script with the command
 
 sudo python2 script.py
 
-6)If you are running the script for morethan once then comment the createtable function i.e createtable() because Once u run the script table 
-
-is created and it can't create table with same name
+7)If you are running the script for morethan once then comment the createtable function i.e createtable() because Once u run the script table is created and it can't create table with same name
 
 Requirements:
-sudo pip install beautifulsoup4
-sudo pip install google
-sudo apt-get install python-pip python-dev libmysqlclient-dev
-sudo pip install MySQL-python 
+sudo pip install beautifulsoup4,
+sudo pip install google,
+sudo apt-get install python-pip python-dev libmysqlclient-dev,
+sudo pip install MySQL-python.
 
 
 
